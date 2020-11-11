@@ -1,0 +1,59 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+
+\title{Tema en exploración:\\
+Métodos de compresión de video para vigilancia urbana}
+\author{Carlos Alberto Salazar\\
+Estudiante\\
+\\Doctorado en Ingeniería – Sistemas e Informática
+\\Tutor: Prof. John Willian Branch Bedoya}
+
+\usepackage{fancyhdr}
+\usepackage{epsfig}
+\usepackage{epic}
+\usepackage{eepic}
+\usepackage{amsmath}
+\usepackage{threeparttable}
+\usepackage{amscd}
+\usepackage{here}
+\usepackage{graphicx}
+\usepackage{lscape}
+\usepackage{tabularx}
+\usepackage{subfigure}
+\usepackage{longtable}
+\usepackage{natbib}
+\bibliographystyle{abbrvnat}
+\setcitestyle{authoryear,open={(},close={)}}
+
+\begin{document}
+
+\maketitle
+
+\section{Resumen}
+
+
+De acuerdo con la tendencia de consumo de aplicaciones digitales de la última década, los servicios de vídeo siguen siendo la opción predominante para los usuarios de Internet; se proyecta que para el año 2022 \citep{cisco_report} las aplicaciones de streaming, entre las cuales se encuentran IoT, gaming, entretenimiento, seguridad urbana, entre otras, alcanzarán el 82\% del tráfico digital global. Este comportamiento ha impactado de manera directa la continua evolución de los métodos y algoritmos de compresión, impulsando el reciente lanzamiento del codificador VVC \citep{bross2018versatile}, que alcanza hasta un 50\% de eficiencia, en términos de cantidad de bits,  con respecto a su antecesor HEVC \citep{sullivan2012overview} y su contra-parte AV1 \citep{8456249}. \\
+
+Aunque estos resultados han sido significativos, el modelo de regalías correspondiente a las patentes de VCC \citep{cpan_global} proyecta que su adopción será nuevamente exclusiva de las empresas predominantes en la industria de vídeo, similar a lo experimentado con HEVC una década atrás \citep{battle}, y limitando la participación de compañías u organizaciones que desarrollen aplicaciones de un menor impacto comercial. Aun siendo menos eficiente que VVC, AV1 propone un modelo disruptivo  que tiene como propósito la supresión de todos los conceptos asociados a regalías, promoviendo  la  democratización de la codificación y planteando un nuevo escenario para el acceso a herramientas que permitan el desarrollo de aplicaciones especificas dentro del espectro de la compresión de vídeo. Un ejemplo de ello se presenta en el artículo de Panayides (\citeyear{8954732}), que expone el desempeño de AV1 en aplicaciones médicas, mediante el uso de filtros lineales (DsFsra, DsFlsmv, DsFhmedia) en la etapa de pre-procesamiento, se logra reducir en un 41\% la tasa de bits de codificación para secuencias de vídeos asociadas a arterias carótidas.\\
+
+Similar a Panyides, Bath  (\citeyear{9102934}) propone una estrategia de pre-procesamiento basada en algoritmos de aprendizaje de maquina que buscan predecir la cantidad de bits óptima para una resolución objetivo asociada a un contenido específico \citep{Netflix}. Según el autor, es posible observar que los clasificadores RF \citep{rf} y MLP alcanzan una mayor eficiencia en comparación con SVM ponderado, llegando hasta un 12\% de reducción de bits para secuencias de vídeo en resoluciones de 4K. Por su parte,  Jia (\citeyear{8630681}) plantea el uso de redes neuronales concurrentes (CNN) como herramientas de restauración que permiten recuperar las características de alta frecuencia de las secuencias de vídeo degradadas durante la etapa de cuantización, propia de la arquitectura estándar del codificadores HEVC, logrando hasta 6\% de eficiencia en términos de cantidad de bits frente a un nivel de calidad objetivo.\\
+
+Los resultados anteriormente mencionados, evidencian un beneficio consistente frente al uso de técnicas de aprendizaje de maquinas como mecanismos para optimizar el desempeño de los procesos y algoritmos que conforman la arquitectura de referencia del codificador AV1. No obstante, en la literatura es habitual encontrar dos tendencias. Por un lado, trabajos cuyo eje principal es la construcción de módulos de pre-procesamiento, que aunque fáciles de implementar, no logran beneficiarse de la arquitectura de paralelización de AV1 \citep{svt}. En segundo lugar, artículos enfocados en incrementar la eficiencia en términos de bits y complejidad del codificador para altas resoluciones (4k, 8k), dejando a un lado aplicaciones que, por su naturaleza, presentan restricciones de ancho de banda; así como es el caso de la vigilancia urbana. \\
+
+Por todo lo anterior, se plantea este proyecto de investigación que pretende explorar técnicas basadas en el uso de aprendizaje de maquinas como una posible mejora de los algoritmos que hacen parte del codificador AV1, orientado a aplicaciones con ancho de banda limitado y conservando la arquitectura actual paralelizable. Esto se realizará, en primer lugar, a través de la revisión del estado del arte de la arquitectura y algoritmos que hacen parte del modelo de referencia de AV1. Posteriormente, se ejecutarán pruebas de desempeño aisladas sobre los algoritmos mencionados, con el objetivo de identificar los componentes que añaden un mayor nivel de complejidad y tiempo de procesamiento. Una vez identificados, se procederá a evaluar diversos modelos de aprendizaje de maquina que pueden enriquecer el desempeño de AV1 aplicado a secuencias de vídeo para vigilancia urbana. Finalmente, se integrarán los algoritmos obtenidos en la arquitectura del codificador AV1.
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+\bibliography{references}
+\end{document}
